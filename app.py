@@ -13,5 +13,35 @@ def all_teachers_view():
     return 'All teachers'
 
 
+@app.route('/goals/<goal>/')
+def goal_view(goal):
+    return 'здесь будет цель <goal>'
+
+
+@app.route('/profiles/<int:id>/')
+def profile_view(id):
+    return 'здесь будет преподаватель <id учителя>'
+
+
+@app.route('/request/')
+def request_view():
+    return 'здесь будет заявка на подбор'
+
+
+@app.route('/request_done/')
+def request_done_view():
+    return 'заявка на подбор отправлена'
+
+
+@app.route('/booking/<int:id>/<day>/<time>/')
+def booking_view():
+    return 'здесь будет форма бронирования <id учителя>'
+
+
+@app.route('/booking_done/')
+def booking_done_view():
+    return 'заявка отправлена'
+
+
 if __name__ == '__main__':
     app.run()
