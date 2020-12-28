@@ -1,4 +1,6 @@
-from flask import Flask
+import json
+
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
@@ -20,7 +22,10 @@ def goal_view(goal):
 
 @app.route('/profiles/<int:id>/')
 def profile_view(id):
-    return 'здесь будет преподаватель <id учителя>'
+    with open('db.json', 'r', encoding='utf-8') as f:
+        profiles = json.load(f)
+    print(type(profiles))
+    return render_template('profile.html', id=id, profiles=profiles)
 
 
 @app.route('/request/')
